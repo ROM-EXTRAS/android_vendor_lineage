@@ -120,7 +120,7 @@ PRODUCT_COPY_FILES += \
 # Themes
 PRODUCT_PACKAGES += \
     LineageBlackTheme \
-    LineageThemesStub \
+    DefaultThemesStub \
     ThemePicker \
     default_permissions_com.android.wallpaper \
     privapp_whitelist_com.android.wallpaper
