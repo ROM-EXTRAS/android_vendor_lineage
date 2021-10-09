@@ -113,6 +113,7 @@ PRODUCT_COPY_FILES += \
 
 # Themes
 PRODUCT_PACKAGES += \
+    DefaultThemesStub \
     default_permissions_com.android.wallpaper \
     privapp_whitelist_com.android.wallpaper
 
