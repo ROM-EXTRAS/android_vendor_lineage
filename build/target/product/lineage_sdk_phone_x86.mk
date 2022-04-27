@@ -23,9 +23,11 @@ PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 MODULE_BUILD_FROM_SOURCE := true
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-   system/app/Development/Development.apk \
-   system/app/Development/oat/x86/Development.odex \
-   system/app/Development/oat/x86/Development.vdex
+  system/etc/init/smartcharge-init.rc \
+  system/etc/permissions/com.android.development.xml \
+  system/app/Development/Development.apk \
+  system/app/Development/oat/x86/Development.odex \
+  system/app/Development/oat/x86/Development.vdex \
 
 # Overrides
 PRODUCT_NAME := lineage_sdk_phone_x86
