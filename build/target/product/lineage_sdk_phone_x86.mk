@@ -22,7 +22,9 @@ include vendor/gapps/x86/x86-vendor.mk
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+  system/etc/init/smartcharge-init.rc \
   system/app/Development/Development.apk \
+  system/etc/permissions/com.android.development.xml \
   system/app/GoogleExtShared/GoogleExtShared.apk \
   system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
   system/etc/permissions/game-overlay.xml \
