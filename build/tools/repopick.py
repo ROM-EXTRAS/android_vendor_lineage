@@ -273,6 +273,12 @@ def main():
         help="force cherry pick even if change is closed",
     )
     parser.add_argument(
+        "-F",
+        "--fork-org",
+        metavar="",
+        help="Provide a profile or organization name forking our repository to apply patches to"
+    )
+    parser.add_argument(
         "-p", "--pull", action="store_true", help="execute pull instead of cherry-pick"
     )
     parser.add_argument(
@@ -385,7 +391,10 @@ def main():
     # {project: {path, revision}}
 
     for project in projects:
-        name = project.get("name")
+        name = project.get("review_name")
+        # Fallback to Poject Name if review_name element doesn't exist
+        if name is None:
+            name = project.get("name")
         # when name and path are equal, "repo manifest" doesn't return a path at all, so fall back to name
         path = project.get("path", name)
         revision = project.get("upstream")
@@ -501,6 +510,22 @@ def main():
                     project_path, local_branch, review["branch"]
                 )
             )
+        elif args.fork_org:
+            forked_item = review["project"].replace("LineageOS", args.fork_org)
+            print(f"Forked:\n{forked_item}")
+            # print(f"Orig:\n{review["project"]}")
+            if review["project"].replace("LineageOS", args.fork_org) in project_name_to_data:
+                if args.force or review["branch"] in project_name_to_data[forked_item]:
+                    if args.force:
+                        for key, value in project_name_to_data[forked_item].items():
+                            project_path = project_name_to_data[forked_item][key]
+                        print(
+                            "WARNING: Force Applying patch on path {0}".format(
+                                project_path
+                            )
+                        )
+                    else:
+                        project_path = project_name_to_data[forked_item][review["branch"]]
         elif args.ignore_missing:
             print(
                 "WARNING: Skipping {0} since there is no project directory for: {1}\n".format(
@@ -674,7 +699,7 @@ def do_git_fetch_pull(args, item):
 
 def apply_change(args, item):
     if not args.quiet:
-        print("Applying change number {0}...".format(item["id"]))
+        print("\nApplying change number {0}...".format(item["id"]))
     if is_closed(item["status"]):
         print("!! Force-picking a closed change !!\n")
 
