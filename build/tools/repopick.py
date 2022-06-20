@@ -273,6 +273,12 @@ def main():
         help="force cherry pick even if change is closed",
     )
     parser.add_argument(
+        "-F",
+        "--fork-org",
+        action="store_true",
+        help="Provide a profile or organization name forking our repository to apply patches to"
+    )
+    parser.add_argument(
         "-p", "--pull", action="store_true", help="execute pull instead of cherry-pick"
     )
     parser.add_argument(
@@ -501,6 +507,16 @@ def main():
                     project_path, local_branch, review["branch"]
                 )
             )
+        elif args.fork_org:
+            forked_item = item['project'].replace('LineageOS', args.fork_org)
+            if item['project'].replace('LineageOS', args.fork_org) in project_name_to_data
+            and item['branch'] in project_name_to_data[forked_item]:
+                project_path = project_name_to_data[forked_item][item['branch']]
+            print(
+                "WARNING: Applying patch on a forked project {0} instead of {1}".format(
+                    forked_item, item['project']
+                )
+            )
         elif args.ignore_missing:
             print(
                 "WARNING: Skipping {0} since there is no project directory for: {1}\n".format(
@@ -674,7 +690,7 @@ def do_git_fetch_pull(args, item):
 
 def apply_change(args, item):
     if not args.quiet:
-        print("Applying change number {0}...".format(item["id"]))
+        print("\nApplying change number {0}...".format(item["id"]))
     if is_closed(item["status"]):
         print("!! Force-picking a closed change !!\n")
 
