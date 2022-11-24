@@ -1,5 +1,6 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/addons/config.mk)
 
 PRODUCT_BRAND ?= LineageOS
 
@@ -109,6 +110,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/init/init.lineage-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-updater.rc
+
+# Themes
+PRODUCT_PACKAGES += \
+    default_permissions_com.android.wallpaper \
+    privapp_whitelist_com.android.wallpaper
 
 # Config
 PRODUCT_PACKAGES += \
