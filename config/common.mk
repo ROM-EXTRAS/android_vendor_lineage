@@ -1,5 +1,6 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/addons/config.mk)
 
 PRODUCT_BRAND ?= LineageOS
 
@@ -120,7 +121,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     LineageBlackTheme \
     LineageThemesStub \
-    ThemePicker
+    ThemePicker \
+    default_permissions_com.android.wallpaper \
+    privapp_whitelist_com.android.wallpaper
 
 # Config
 PRODUCT_PACKAGES += \
