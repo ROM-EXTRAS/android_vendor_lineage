@@ -123,12 +123,12 @@ def fetch_query_via_http(remote_url, query):
         status_code = '-1'
         if auth:
             url = '{0}/a/changes/?q={1}&o=CURRENT_REVISION&o=ALL_REVISIONS&o=ALL_COMMITS'.format(remote_url, query)
-            data = requests.get(url, auth=auth)
+            data = requests.get(url, auth=auth, verify=False)
             status_code = str(data.status_code)
         if status_code != '200':
             #They didn't get good authorization or data, Let's try the old way
             url = '{0}/changes/?q={1}&o=CURRENT_REVISION&o=ALL_REVISIONS&o=ALL_COMMITS'.format(remote_url, query)
-            data = requests.get(url)
+            data = requests.get(url, verify=False)
         reviews = json.loads(data.text[5:])
     else:
         """Given a query, fetch the change numbers via http"""
@@ -154,7 +154,7 @@ def fetch_query(remote_url, query):
 
 if __name__ == '__main__':
     # Default to LineageOS Gerrit
-    default_gerrit = 'https://review.lineageos.org'
+    default_gerrit = 'https://localhost:8443'
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=textwrap.dedent('''\
         repopick.py is a utility to simplify the process of cherry picking
