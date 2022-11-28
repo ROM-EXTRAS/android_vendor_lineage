@@ -19,6 +19,17 @@ include vendor/lineage/build/target/product/lineage_generic_target.mk
 # Enable mainline checking
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+  system/app/GoogleExtShared/GoogleExtShared.apk \
+  system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+  system/etc/permissions/game-overlay.xml \
+  system/etc/permissions/privapp-permissions-google.xml \
+  system/lib/libRSSupport.so \
+  system/lib/libblasV8.so \
+  system/lib/librsjni.so \
+  system/addon.d/70-velvet.sh \
+  system/app/FlipendoPrebuilt/FlipendoPrebuilt.apk
+
 # Overrides
 PRODUCT_NAME := lineage_sdk_phone_x86
 PRODUCT_MODEL := LineageOS Android SDK built for x86
