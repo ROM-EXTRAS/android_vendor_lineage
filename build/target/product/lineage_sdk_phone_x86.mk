@@ -16,6 +16,8 @@ $(call inherit-product, build/target/product/sdk_phone_x86.mk)
 
 include vendor/lineage/build/target/product/lineage_generic_target.mk
 
+include vendor/gapps/x86/x86-vendor.mk
+
 # Enable mainline checking
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 MODULE_BUILD_FROM_SOURCE := true
@@ -34,6 +36,8 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 # Overrides
 PRODUCT_NAME := lineage_sdk_phone_x86
 PRODUCT_MODEL := LineageOS Android SDK built for x86
+
+PRODUCT_PACKAGES += Remove_Packages
 
 PRODUCT_SDK_ADDON_NAME := lineage
 PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
