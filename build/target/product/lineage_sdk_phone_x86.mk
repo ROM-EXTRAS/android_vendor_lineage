@@ -22,6 +22,7 @@ include vendor/gapps/x86/x86-vendor.mk
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+  system/app/Development/Development.apk \
   system/app/GoogleExtShared/GoogleExtShared.apk \
   system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
   system/etc/permissions/game-overlay.xml \
