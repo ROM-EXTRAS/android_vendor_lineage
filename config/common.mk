@@ -105,6 +105,10 @@ TARGET_SCREEN_HEIGHT ?= 1920
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
+# Development
+PRODUCT_PACKAGES += \
+    Development
+
 # Lineage packages
 PRODUCT_PACKAGES += \
     LineageParts \
