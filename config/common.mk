@@ -109,6 +109,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     build-manifest
 
+# Development
+PRODUCT_PACKAGES += \
+    Development
+
 # Lineage packages
 PRODUCT_PACKAGES += \
     LineageParts \
