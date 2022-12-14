@@ -15,9 +15,12 @@
     limitations under the License.
 -->
 <resources>
-    <!-- Whether to show capitalize string on Button -->
-    <bool name="config_button_all_caps">false</bool>
+    <style name="DocumentsTheme" parent="@android:style/Theme.DeviceDefault.DocumentsUI">
+        <!-- Color section -->
+        <item name="android:strokeColor">#ffdadce0</item>
+        <item name="android:colorControlActivated">#ff1967d2</item>
 
-    <!-- Indicates if showing as search bar design -->
-    <bool name="show_search_bar">true</bool>
+        <!-- System | Widget section -->
+        <item name="android:navigationBarDividerColor">?android:attr/strokeColor</item>
+    </style>
 </resources>

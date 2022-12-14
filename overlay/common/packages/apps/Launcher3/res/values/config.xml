@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (C) 2020 The Proton AOSP Project
+    Copyright (C) 2021 The Proton AOSP Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
     limitations under the License.
 -->
 <resources>
-    <!-- Whether to show capitalize string on Button -->
-    <bool name="config_button_all_caps">false</bool>
+    <string name="wallpaper_picker_package" translatable="false">com.android.wallpaper</string>
+    <string name="local_colors_extraction_class" translatable="false">org.protonaosp.launcher3.ThemedLocalColorExtractor</string>
 
-    <!-- Indicates if showing as search bar design -->
-    <bool name="show_search_bar">true</bool>
+    <!-- Enable All Apps header scrim (works fine with our fixed search UI) -->
+    <bool name="config_header_protection_supported">true</bool>
 </resources>
