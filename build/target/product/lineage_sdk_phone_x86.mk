@@ -23,11 +23,35 @@ PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 MODULE_BUILD_FROM_SOURCE := true
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-  system/etc/init/smartcharge-init.rc \
-  system/etc/permissions/com.android.development.xml \
-  system/app/Development/Development.apk \
-  system/app/Development/oat/x86/Development.odex \
-  system/app/Development/oat/x86/Development.vdex \
+   system/addon.d/70-velvet.sh \
+   system/app/Development/Development.apk \
+   system/app/Development/oat/x86/Development.odex \
+   system/app/Development/oat/x86/Development.vdex \
+   system/app/FlipendoPrebuilt/FlipendoPrebuilt.apk \
+   system/app/GoogleExtShared/GoogleExtShared.apk \
+   system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+   system/etc/init/smartcharge-init.rc \
+   system/etc/permissions/com.android.development.xml \
+   system/etc/permissions/game-overlay.xml \
+   system/etc/permissions/privapp-permissions-google.xml \
+   system/fonts/CutiveMono.ttf \
+   system/fonts/DroidSans-Bold.ttf \
+   system/fonts/DroidSans.ttf \
+   system/fonts/NotoSerif-Bold.ttf \
+   system/fonts/NotoSerif-BoldItalic.ttf \
+   system/fonts/NotoSerif-Italic.ttf \
+   system/fonts/NotoSerif-Regular.ttf \
+   system/fonts/Roboto-Regular.ttf \
+   system/fonts/RobotoFallback-VF.ttf \
+   system/fonts/RobotoStatic-Regular.ttf \
+   system/lib/lib7z.so \
+   system/lib/libblasV8.so \
+   system/lib/librsjni.so \
+   system/lib/libRSSupport.so \
+   system/xbin/7z \
+   system/xbin/pigz \
+   system/xbin/unrar \
+   system/xbin/zip
 
 # Overrides
 PRODUCT_NAME := lineage_sdk_phone_x86
