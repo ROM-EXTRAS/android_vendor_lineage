@@ -22,28 +22,33 @@ include vendor/gapps/x86/x86-vendor.mk
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
 
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-  system/fonts/CutiveMono.ttf \
-  system/fonts/DroidSans-Bold.ttf \
-  system/fonts/DroidSans.ttf \
-  system/fonts/NotoSerif-Bold.ttf \
-  system/fonts/NotoSerif-BoldItalic.ttf \
-  system/fonts/NotoSerif-Italic.ttf \
-  system/fonts/NotoSerif-Regular.ttf \
-  system/fonts/Roboto-Regular.ttf \
-  system/fonts/RobotoFallback-VF.ttf \
-  system/fonts/RobotoStatic-Regular.ttf \
-  system/etc/init/smartcharge-init.rc \
-  system/app/Development/Development.apk \
-  system/etc/permissions/com.android.development.xml \
-  system/app/GoogleExtShared/GoogleExtShared.apk \
-  system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
-  system/etc/permissions/game-overlay.xml \
-  system/etc/permissions/privapp-permissions-google.xml \
-  system/lib/libRSSupport.so \
-  system/lib/libblasV8.so \
-  system/lib/librsjni.so \
-  system/addon.d/70-velvet.sh \
-  system/app/FlipendoPrebuilt/FlipendoPrebuilt.apk
+   system/addon.d/70-velvet.sh \
+   system/app/Development/Development.apk \
+   system/app/FlipendoPrebuilt/FlipendoPrebuilt.apk \
+   system/app/GoogleExtShared/GoogleExtShared.apk \
+   system/app/GooglePrintRecommendationService/GooglePrintRecommendationService.apk \
+   system/etc/init/smartcharge-init.rc \
+   system/etc/permissions/com.android.development.xml \
+   system/etc/permissions/game-overlay.xml \
+   system/etc/permissions/privapp-permissions-google.xml \
+   system/fonts/CutiveMono.ttf \
+   system/fonts/DroidSans-Bold.ttf \
+   system/fonts/DroidSans.ttf \
+   system/fonts/NotoSerif-Bold.ttf \
+   system/fonts/NotoSerif-BoldItalic.ttf \
+   system/fonts/NotoSerif-Italic.ttf \
+   system/fonts/NotoSerif-Regular.ttf \
+   system/fonts/Roboto-Regular.ttf \
+   system/fonts/RobotoFallback-VF.ttf \
+   system/fonts/RobotoStatic-Regular.ttf \
+   system/lib/lib7z.so \
+   system/lib/libblasV8.so \
+   system/lib/librsjni.so \
+   system/lib/libRSSupport.so \
+   system/xbin/7z \
+   system/xbin/pigz \
+   system/xbin/unrar \
+   system/xbin/zip
 
 # Overrides
 PRODUCT_NAME := lineage_sdk_phone_x86
