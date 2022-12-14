@@ -15,9 +15,5 @@
     limitations under the License.
 -->
 <resources>
-    <!-- Whether to show capitalize string on Button -->
-    <bool name="config_button_all_caps">false</bool>
-
-    <!-- Indicates if showing as search bar design -->
-    <bool name="show_search_bar">true</bool>
+    <color name="primary">@*android:color/accent_device_default_light</color>
 </resources>
