@@ -220,6 +220,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     NetworkStackOverlay \
+    NowPlayingOverlay \
     TrebuchetOverlay
 
 # Translations
