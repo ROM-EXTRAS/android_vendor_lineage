@@ -508,15 +508,19 @@ def main():
                 )
             )
         elif args.fork_org:
-            forked_item = item['project'].replace('LineageOS', args.fork_org)
-            if item['project'].replace('LineageOS', args.fork_org) in project_name_to_data
-            and item['branch'] in project_name_to_data[forked_item]:
-                project_path = project_name_to_data[forked_item][item['branch']]
-            print(
-                "WARNING: Applying patch on a forked project {0} instead of {1}".format(
-                    forked_item, item['project']
-                )
-            )
+            forked_item = item["project"].replace("LineageOS", args.fork_org)
+            if item["project"].replace("LineageOS", args.fork_org) in project_name_to_data:
+                if args.force or item["branch"] in project_name_to_data[forked_item]:
+                    if args.force:
+                        for key, value in project_name_to_data[forked_item].items():
+                            project_path = project_name_to_data[forked_item][key]
+                        print(
+                            "WARNING: Force Applying patch on path {0}".format(
+                                project_path
+                            )
+                        )
+                    else:
+                        project_path = project_name_to_data[forked_item][item["branch"]]
         elif args.ignore_missing:
             print(
                 "WARNING: Skipping {0} since there is no project directory for: {1}\n".format(
