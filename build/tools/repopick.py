@@ -259,11 +259,15 @@ if __name__ == '__main__':
 
     # dump project data into the a list of dicts with the following data:
     # {project: {path, revision}}
-
+    print("================================")
     for project in projects:
         name = project.get('name')
+        if 'sdk' in name:
+            print(name)
         # when name and path are equal, "repo manifest" doesn't return a path at all, so fall back to name
         path = project.get('path', name)
+        if 'sdk' in name:
+            print(path)
         revision = project.get('upstream')
         if revision is None:
             for remote in remotes:
@@ -271,11 +275,15 @@ if __name__ == '__main__':
                     revision = remote.get('revision')
             if revision is None:
                 revision = project.get('revision', default_revision)
-
+        if 'sdk' in name:
+            print(f"Checking if name is in name_to_data {name not in project_name_to_data}")
         if name not in project_name_to_data:
             project_name_to_data[name] = {}
         revision = revision.split('refs/heads/')[-1]
         project_name_to_data[name][revision] = path
+
+        if 'sdk' in name:
+            print(f"{project_name_to_data[name][revision]}")
 
     # get data on requested changes
     reviews = []
@@ -384,8 +392,15 @@ if __name__ == '__main__':
             print('WARNING: Project {0} has a different branch ("{1}" != "{2}")'.format(project_path, local_branch, item['branch']))
         elif args.fork_org:
             forked_item=item['project'].replace('LineageOS', args.fork_org)
-            if item['project'].replace('LineageOS', args.fork_org) in project_name_to_data and item['branch'] in project_name_to_data[forked_item]:
-                project_path = project_name_to_data[forked_item][item['branch']]
+            if item['project'].replace('LineageOS', args.fork_org) in project_name_to_data:
+                if args.force or item['branch'] in project_name_to_data[forked_item]:
+                    if args.force:
+                        for key, value in project_name_to_data[forked_item].items():
+                            project_path = project_name_to_data[forked_item][key]
+                        print('WARNING: Force Applying patch on path {0}'.format(project_path))
+                    else:
+                        project_path = project_name_to_data[forked_item][item['branch']]
+
             print('WARNING: Applying patch on a forked project {0} instead of {1}'.format(forked_item, item['project']))
         elif args.ignore_missing:
             print('WARNING: Skipping {0} since there is no project directory for: {1}\n'.format(item['id'], item['project']))
