@@ -56,7 +56,14 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
    system/xbin/7z \
    system/xbin/pigz \
    system/xbin/unrar \
-   system/xbin/zip
+   system/xbin/zip \
+    system/bin/unzstd \
+    system/bin/zstd \
+    system/bin/zstdcat \
+    system/bin/zstdgrep \
+    system/bin/zstdless \
+    system/bin/zstdmt \
+    system/lib/libzstd.so
 
 # Overrides
 PRODUCT_NAME := lineage_sdk_phone_x86
