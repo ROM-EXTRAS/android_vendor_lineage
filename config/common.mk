@@ -105,9 +105,9 @@ TARGET_SCREEN_HEIGHT ?= 1920
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
-# Build Manifest
-PRODUCT_PACKAGES += \
-    build-manifest
+# # Build Manifest
+# PRODUCT_PACKAGES += \
+#     build-manifest
 
 # Development
 PRODUCT_PACKAGES += \
