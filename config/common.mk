@@ -247,6 +247,10 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/crowdin/overlay
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     vendor/lineage/build/target/product/security/lineage
 
+# Disable lockscreen live wallpaper for media metadata on lockscreen to work
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.wm.debug.lockscreen_live_wallpaper=false
+
 include vendor/lineage/config/version.mk
 
 -include vendor/lineage-priv/keys/keys.mk
