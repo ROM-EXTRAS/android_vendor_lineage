@@ -275,7 +275,7 @@ def main():
     parser.add_argument(
         "-F",
         "--fork-org",
-        action="store_true",
+        metavar="",
         help="Provide a profile or organization name forking our repository to apply patches to"
     )
     parser.add_argument(
@@ -391,7 +391,16 @@ def main():
     # {project: {path, revision}}
 
     for project in projects:
-        name = project.get("name")
+        name = project.get("review_name")
+        if name is None:
+            name = project.get("name")
+        else:
+            print(f"===== {name} =====")
+        if "vendor_lineage" in name:
+            print(f"***** {name} *****")
+            print(f"**********")
+            print(f"{ElementTree.tostring(project, encoding='utf8')}")
+            print(f"**********")
         # when name and path are equal, "repo manifest" doesn't return a path at all, so fall back to name
         path = project.get("path", name)
         revision = project.get("upstream")
@@ -489,6 +498,8 @@ def main():
 
         # Convert the project name to a project path
         #   - check that the project path exists
+        project_path = None
+
         if (
             review["project"] in project_name_to_data
             and review["branch"] in project_name_to_data[review["project"]]
@@ -508,9 +519,13 @@ def main():
                 )
             )
         elif args.fork_org:
-            forked_item = item["project"].replace("LineageOS", args.fork_org)
-            if item["project"].replace("LineageOS", args.fork_org) in project_name_to_data:
-                if args.force or item["branch"] in project_name_to_data[forked_item]:
+            print("###############")
+            print(review)
+            print("-------------")
+            print(project_name_to_data)
+            forked_item = review["project"].replace("LineageOS", args.fork_org)
+            if review["project"].replace("LineageOS", args.fork_org) in project_name_to_data:
+                if args.force or review["branch"] in project_name_to_data[forked_item]:
                     if args.force:
                         for key, value in project_name_to_data[forked_item].items():
                             project_path = project_name_to_data[forked_item][key]
@@ -520,7 +535,7 @@ def main():
                             )
                         )
                     else:
-                        project_path = project_name_to_data[forked_item][item["branch"]]
+                        project_path = project_name_to_data[forked_item][review["branch"]]
         elif args.ignore_missing:
             print(
                 "WARNING: Skipping {0} since there is no project directory for: {1}\n".format(
@@ -548,6 +563,9 @@ def main():
             "id": change,
             "revision": review["current_revision"],
         }
+
+        print("=========")
+        print(item)
 
         if patchset:
             for x in review["revisions"]:
