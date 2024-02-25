@@ -21,3 +21,7 @@ PRODUCT_SDK_ADDON_COPY_FILES += \
     device/generic/goldfish/data/etc/advancedFeatures.ini.arm:images/arm64-v8a/advancedFeatures.ini \
     device/generic/goldfish/data/etc/encryptionkey.img:images/arm64-v8a/encryptionkey.img \
     $(EMULATOR_KERNEL_FILE):images/arm64-v8a/kernel-ranchu
+
+
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+ system/etc/permissions/com.android.development.xml
