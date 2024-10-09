@@ -5,6 +5,9 @@ $(call inherit-product-if-exists, vendor/addons/config.mk)
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
+# Import Pixel FW
+$(call inherit-product-if-exists, vendor/pixel-framework/config.mk)
+
 PRODUCT_BRAND ?= LineageOS
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
