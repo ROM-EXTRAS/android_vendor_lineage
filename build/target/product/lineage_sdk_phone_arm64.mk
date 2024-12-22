@@ -17,6 +17,10 @@ $(call inherit-product, vendor/lineage/build/target/product/lineage_sdk_phone_ar
 
 include vendor/lineage/build/target/product/lineage_generic_target.mk
 
+ifdef WITH_MTG
+include vendor/gapps/arm64/arm64-vendor.mk
+endif
+
 # Always build modules from source
 PRODUCT_MODULE_BUILD_FROM_SOURCE := true
 
