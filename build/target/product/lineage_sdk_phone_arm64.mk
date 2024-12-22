@@ -16,6 +16,7 @@ $(call inherit-product, device/generic/goldfish/64bitonly/product/sdk_phone64_ar
 $(call inherit-product, vendor/lineage/build/target/product/lineage_sdk_phone_arm64_board.mk)
 
 include vendor/lineage/build/target/product/lineage_generic_target.mk
+-include vendor/gapps/arm64/arm64-vendor.mk
 
 # Always build modules from source
 PRODUCT_MODULE_BUILD_FROM_SOURCE := true
